@@ -7,6 +7,84 @@
 </head>
 <body>
     <p>Olá mundo, a forma mais famosa e padrão para se começar não é mesmo?</p>
+
+    <div id="myDiv" onmouseover="mOver(this)" onmouseout="mOut(this)" 
+        style="background-color:#c6ccf1;width:200px;height:50px;padding:50px;font-family: Consolas;">
+    </div>
+
+    <div id="myDivImagens" onmouseover="mOverImage(this)" onmouseout="mOutImage(this)" 
+        style="width:1300px;height:350px;padding:0px;">
+        <img id="image" src="programacao.jpg" alt="Imagem 1" style="width:100%; height:100%;">
+    </div>
+
+    <script>
+        var frases = [
+            "HELLO WORLD",
+            "Bem vindo caro visitante!",
+            "Em breve vamos ter novidades",
+            "Tenha um ótimo dia!",
+            "Até logo!"
+        ];
+
+        var imagens = [
+            "programacao.jpg",
+            "automacao.jpg",
+            "industria_comercio.jpg",
+        ];
+
+        var index = 0; // Índice atual da frase
+        var indexImage = 0; // Índice atual das imagens
+
+        function mOver(obj) {
+            clearInterval(intervalId);
+            //obj.innerHTML = "Hello World"
+            obj.style.backgroundColor = "#ffcc00"; // Altera a cor de fundo quando o mouse passa sobre o elemento
+            //obj.style.width = "200px";
+        }
+
+        function mOut(obj) {
+            intervalId = setInterval(changePhrase, 1500);
+            //obj.innerHTML = "Passe por aqui!";
+            obj.style.backgroundColor = "#c6ccf1"; // Restaura a cor de fundo quando o mouse sai do elemento
+            //obj.style.width = "100px";
+        }
+
+        function changePhrase() {
+            // Obtém a div pelo ID
+            var obj = document.getElementById("myDiv");
+            
+            // Define o texto da div com a próxima frase da lista
+            obj.innerHTML = frases[index];
+
+            // Atualiza o índice para a próxima frase
+            index = (index + 1) % frases.length;
+        }
+
+        // Inicia a alteração da frase automaticamente
+        var intervalId = setInterval(changePhrase, 1500);
+
+        function mOverImage(obj) {
+            clearInterval(intervalIdImage);
+        }
+        
+        function mOutImage(obj) {
+            intervalIdImage = setInterval(changeImage, 2000);
+        }
+
+        function changeImage() {
+            // Obtém a div pelo ID
+            var img = document.getElementById("image");
+        
+            // Define a URL da próxima imagem
+            img.src = imagens[indexImage];
+
+            // Atualiza o índice para a próxima frase
+            indexImage = (indexImage + 1) % imagens.length;
+        }
+
+        // Inicia a alteração da frase automaticamente
+        var intervalIdImage = setInterval(changeImage, 2000);
+    </script>
     
 </body>
 </html>
