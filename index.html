@@ -4,18 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site do Ale</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p>Olá mundo, a forma mais famosa e padrão para se começar não é mesmo?</p>
+    <nav class="navbar">
+        <div class="container">
+            <!--<h1 class="logo">Logo</h1>-->
+            <img src="logo_ale.png" class="logo"></img>
+            <li>
+                <div id="myDiv" onmouseover="mOver(this)" onmouseout="mOut(this)" 
+                    style="background-color:#c6ccf100;width:250px;height:20px;padding:20px;font-family: Consolas;color: rgb(248, 248, 248);font-size: 1.3rem;">
+                </div>
+            </li>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </nav>
+    
+    <script src="script.js"></script>
 
-    <div id="myDiv" onmouseover="mOver(this)" onmouseout="mOut(this)" 
-        style="background-color:#c6ccf1;width:200px;height:50px;padding:50px;font-family: Consolas;">
-    </div>
-
+    <!--<p>Olá mundo, a forma mais famosa e padrão para se começar não é mesmo?</p>-->
     <div id="myDivImagens" onmouseover="mOverImage(this)" onmouseout="mOutImage(this)" 
-        style="width:1300px;height:350px;padding:0px;">
-        <img id="image" src="programacao.jpg" alt="Imagem 1" style="width:100%; height:100%;">
+        style="width:90%;height:450px;padding:0px;margin-left:10%;">
+        <img id="image" src="programacao.jpg" alt="Imagem 1" style="width:90%; height:100%;">
     </div>
+
+    
 
     <script>
         var frases = [
@@ -30,6 +53,7 @@
             "programacao.jpg",
             "automacao.jpg",
             "industria_comercio.jpg",
+            "logo_ale.png"
         ];
 
         var index = 0; // Índice atual da frase
@@ -38,14 +62,14 @@
         function mOver(obj) {
             clearInterval(intervalId);
             //obj.innerHTML = "Hello World"
-            obj.style.backgroundColor = "#ffcc00"; // Altera a cor de fundo quando o mouse passa sobre o elemento
+            //obj.style.backgroundColor = "#ffcc00"; // Altera a cor de fundo quando o mouse passa sobre o elemento
             //obj.style.width = "200px";
         }
 
         function mOut(obj) {
-            intervalId = setInterval(changePhrase, 1500);
+            intervalId = setInterval(changePhrase, 2000);
             //obj.innerHTML = "Passe por aqui!";
-            obj.style.backgroundColor = "#c6ccf1"; // Restaura a cor de fundo quando o mouse sai do elemento
+            //obj.style.backgroundColor = "#c6ccf1"; // Restaura a cor de fundo quando o mouse sai do elemento
             //obj.style.width = "100px";
         }
 
@@ -61,14 +85,14 @@
         }
 
         // Inicia a alteração da frase automaticamente
-        var intervalId = setInterval(changePhrase, 1500);
+        var intervalId = setInterval(changePhrase, 2000);
 
         function mOverImage(obj) {
             clearInterval(intervalIdImage);
         }
         
         function mOutImage(obj) {
-            intervalIdImage = setInterval(changeImage, 2000);
+            intervalIdImage = setInterval(changeImage, 2500);
         }
 
         function changeImage() {
@@ -83,7 +107,7 @@
         }
 
         // Inicia a alteração da frase automaticamente
-        var intervalIdImage = setInterval(changeImage, 2000);
+        var intervalIdImage = setInterval(changeImage, 2500);
     </script>
     
 </body>
